@@ -10,7 +10,7 @@
     </p>
     
 <a href="https://vuejs.org/guide/essentials/reactivity-fundamentals.html#why-refs"> why we need .value ? </a>
-    
+<a href="https://vuejs.org/guide/essentials/reactivity-fundamentals.html#limitations-of-reactive"> limits of reactive </a>
   </div>
 </template>
 

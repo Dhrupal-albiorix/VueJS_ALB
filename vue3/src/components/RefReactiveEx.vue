@@ -47,6 +47,17 @@ export default {
       };
     }, 1000);
 
+    //A ref is automatically unwrapped when accessed or mutated as a property of a reactive object. In other words, it behaves like a normal property
+//     const count = ref(0)
+// const state = reactive({
+//   count
+// })
+
+// console.log(state.count) // 0
+
+// state.count = 1
+// console.log(count.value) // 1
+
     return {
       a,
       b,

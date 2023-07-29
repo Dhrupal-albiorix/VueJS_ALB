@@ -8,6 +8,9 @@
       for primitive values it will require use of ref while for non promitive it
       will require reactive
     </p>
+    
+<a href="https://vuejs.org/guide/essentials/reactivity-fundamentals.html#why-refs"> why we need .value ? </a>
+    
   </div>
 </template>
 

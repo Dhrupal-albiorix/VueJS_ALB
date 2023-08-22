@@ -4,43 +4,56 @@
       <div>
         <div class="wrapper-progressBar">
           <ul class="progressBar">
-            <li :class="active == '/AddEmp' ? 'active' : ''">
+            <li
+              :class="active == '/AddEmp' ? 'active' : ''"
+              class="font-weight-light"
+            >
               Personal Details
             </li>
-            <li :class="active == '/BankDetails' ? 'active' : ''">
+            <li
+              :class="active == '/BankDetails' ? 'active' : ''"
+              class="font-weight-light"
+            >
               Bank Details
             </li>
-            <li :class="active == '/ProfessionalDetails' ? 'active' : ''">
+            <li
+              :class="active == '/ProfessionalDetails' ? 'active' : ''"
+              class="font-weight-light"
+            >
               Professional Details
             </li>
-            <li :class="active == '/EducationDetails' ? 'active' : ''">
+            <li
+              :class="active == '/EducationDetails' ? 'active' : ''"
+              class="font-weight-light"
+            >
               Education Details
             </li>
-            <li :class="active == '/CurrentOrganization' ? 'active' : ''">
+            <li
+              :class="active == '/ExperienceDetails' ? 'active' : ''"
+              class="font-weight-light"
+            >
               Experience Details
             </li>
-            <li>Current Organization Details</li>
+            <li
+              :class="active == '/CurrentOrganization' ? 'active' : ''"
+              class="font-weight-light"
+            >
+              Current Organization Details
+            </li>
           </ul>
         </div>
       </div>
     </div>
-    <br />
-    <br />
-    <br />
   </div>
 </template>
 
 <script setup>
 import router from "@/router";
+
 import { ref } from "vue";
-console.log("route");
-console.log(router.currentRoute.value.fullPath);
+console.log(router);
 const active = ref("");
 active.value = router.currentRoute.value.fullPath;
-
-// if (active.value == "/AddEmp") {
-//   location.reload();
-// }
 </script>
 
 <style scoped>

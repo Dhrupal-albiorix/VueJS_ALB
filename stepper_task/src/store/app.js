@@ -56,7 +56,7 @@ export const useAppStore = defineStore('app', {
     async validate(form, page) {
       const { valid } = await form.validate();
       if (valid) {
-        router.push(page);
+        router.replace(page);
       }
     },
     async submitAll(form, page) {
@@ -66,7 +66,7 @@ export const useAppStore = defineStore('app', {
         this.all_info.push([this.user, this.bank, this.profession, this.education_arr, this.experience_arr, this.current_org]);
         localStorage.setItem('users', JSON.stringify(this.all_info));
         this.all_info = JSON.parse(localStorage.getItem('users')) || [];
-        router.push(page);
+        router.replace(page);
       }
     },
     chaeck_val() {
@@ -75,10 +75,10 @@ export const useAppStore = defineStore('app', {
       }
     },
     back(back) {
-      router.push(back);
+      router.replace(back);
     },
     go_to_List() {
-      router.push("/");
+      router.replace("/");
     },
 
 
@@ -87,7 +87,7 @@ export const useAppStore = defineStore('app', {
       localStorage.setItem('for_update', this.for_update)
       localStorage.setItem('editable_index', index)
       this.edit_user_in_local()
-      router.push("/AddEmp");
+      router.replace("/AddEmp");
     },
 
     edit_user_in_local() {
@@ -111,7 +111,7 @@ export const useAppStore = defineStore('app', {
       this.all_info[localStorage.getItem("editable_index")][5] = this.current_org
       localStorage.setItem('users', JSON.stringify(this.all_info));
       localStorage.removeItem("for_update");
-      router.push("/")
+      router.replace("/")
 
     },
 

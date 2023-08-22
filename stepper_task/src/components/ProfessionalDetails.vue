@@ -2,7 +2,7 @@
   <div>
    <stepper-design />
 </div>
-  <div class="text-center text-capitalize text-h5 mt-3">
+  <div class="text-center text-capitalize text-h6 mt-3 font-weight-light">
     Professional Details
   </div>
 
@@ -170,13 +170,13 @@ months = [
   "11 month",
   "12 month",
 ];
-// const Rules = [
-//   (value) => {
-//     if (value) return true;
-//     return "required";
-//   },
-// ];
-// const select2 = [(v) => v.length > 0 || "required"];
+const Rules = [
+  (value) => {
+    if (value) return true;
+     return "This attribute is required";
+  },
+];
+const select2 = [(v) => v.length > 0 || "required"];
 
 const handleResumeUpload = (event) => {
   const resumeFile = event.target.files[0];

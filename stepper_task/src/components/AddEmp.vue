@@ -1,10 +1,11 @@
 <template>
+  <div>
+    <stepper-design />
+  </div>
 
-<div>
-   <stepper-design />
-</div>
-
-  <div class="text-center text-capitalize text-h5 mt-3">Personal Details</div>
+  <div class="text-center text-capitalize text-h6 mb-3 font-weight-light">
+    Personal Details
+  </div>
 
   <v-sheet>
     <v-form ref="form">
@@ -23,7 +24,7 @@
           <v-col cols="12" md="4">
             <v-text-field
               v-model="userdata.user.middlename"
-              :rules="middlenameRules"
+              :rules="fristnameRules"
               label="Middle Name *"
               required
             ></v-text-field>
@@ -32,7 +33,7 @@
           <v-col cols="12" md="4">
             <v-text-field
               v-model="userdata.user.lastname"
-              :rules="lastnameRules"
+              :rules="fristnameRules"
               label="Last name *"
               required
             ></v-text-field>
@@ -162,6 +163,7 @@ import StepperDesign from "../components/StepperDesign.vue";
 const userdata = useAppStore();
 
 import { ref } from "vue";
+
 const form = ref(null);
 
 const handleImageUpload = (event) => {
@@ -176,49 +178,38 @@ const handleImageUpload = (event) => {
 };
 
 userdata.edit_user_in_local();
-// const fristnameRules = [
-//   (value) => {
-//     if (value) return true;
-//     return "frist Name is required.";
-//   },
-// ];
-// const middlenameRules = [
-//   (value) => {
-//     if (value) return true;
-//     return "middle Name is required.";
-//   },
-// ];
-// const lastnameRules = [
-//   (value) => {
-//     if (value) return true;
-//     return "last Name is required.";
-//   },
-// ];
-// const emailRules = [
-//   (value) => {
-//     if (value) return true;
+const fristnameRules = [
+  (value) => {
+    if (value) return true;
+    return "This attribute is required";
+  },
+];
 
-//     return "E-mail is requred.";
-//   },
-//   (value) => {
-//     if (/.+@.+\..+/.test(value)) return true;
+const emailRules = [
+  (value) => {
+    if (value) return true;
 
-//     return "E-mail must be valid.";
-//   },
-// ];
-// const mobileRules = [
-//   (value) => {
-//     if (value) return true;
+    return "This attribute is required";
+  },
+  (value) => {
+    if (/.+@.+\..+/.test(value)) return true;
 
-//     return "phone is required.";
-//   },
-//   (value) => {
-//     const phoneRegex = /^(\+\d{1,2}\s?)?\(?\d{3}\)?[\s.-]?\d{3}[\s.-]?\d{4}$/;
-//     if (phoneRegex.test(value)) return true;
+    return "This attribute is required";
+  },
+];
+const mobileRules = [
+  (value) => {
+    if (value) return true;
 
-//     return "Phone must be valid.";
-//   },
-// ];
+    return "This attribute is required";
+  },
+  (value) => {
+    const phoneRegex = /^(\+\d{1,2}\s?)?\(?\d{3}\)?[\s.-]?\d{3}[\s.-]?\d{4}$/;
+    if (phoneRegex.test(value)) return true;
+
+    return "This attribute is required";
+  },
+];
 </script>
 
 <style>

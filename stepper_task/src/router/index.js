@@ -6,9 +6,6 @@ const routes = [
     path: '',
     name: 'Home',
     component: () => import('@/views/Home.vue'),
-    beforeRouteLeave(to, from, next) {
-      location.reload()
-    }
   },
   {
     path: '/AddEmp',

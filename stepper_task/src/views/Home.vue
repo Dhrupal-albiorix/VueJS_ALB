@@ -11,65 +11,62 @@
       </v-btn>
     </v-card-actions>
 
-    <v-card>
-      <v-data-table
-        v-model:items-per-page="itemsPerPage"
-        :headers="headers"
-        :items="userdata.all_info"
-        item-value="name"
-        class="elevation-1"
-      >
-        <template v-slot:item="{ item }">
-          <tr>
-            <td>
-              <img
-                v-if="item.selectable[0].img"
-                :src="item.selectable[0].img"
-                alt="User Image"
-                class="img"
-              />
-            </td>
-            <td>name:{{ item.selectable[0].firstname }}</td>
-            <td>department:{{ item.selectable[2].department }}</td>
-            <td>designation:{{ item.selectable[2].designation }}</td>
-            <td>email : {{ item.selectable[0].email }}</td>
-            <td>{{ item.selectable[0].mobile }}</td>
-            <td>
-              <a
-                v-if="item.selectable[2].resumeLink"
-                :href="item.selectable[2].resumeLink"
-                :target="item.selectable[2].resumeLink"
-                @click="downloadPdf(item.selectable[2].resumeLink.pdfData)"
-              >
-                <v-icon class="mr-2">mdi-file-pdf-box</v-icon>
-                <v-btn v-if="item.selectable[2].resumeLink" depressed>
-                  <v-icon>mdi-download</v-icon>
-                  <span>get the file</span>
-                </v-btn>
-              </a>
-            </td>
-            <td>
-              <v-icon class="mr-2" @click="userdata.edit_user(item.index)"
-                >mdi-pencil</v-icon
-              >
-              <v-icon class="mr-2" @click="userdata.delete_user(item.index)"
-                >mdi-delete</v-icon
-              >
-            </td>
-          </tr>
-        </template>
-      </v-data-table>
-    </v-card>
+    <v-data-table
+      v-model:items-per-page="itemsPerPage"
+      :headers="headers"
+      :items="userdata.all_info"
+      item-value="name"
+      class="elevation-1"
+    >
+      <template v-slot:item="{ item }">
+        <tr>
+          <td>
+            <img
+              v-if="item.selectable[0].img"
+              :src="item.selectable[0].img"
+              alt="User Image"
+              class="img"
+            />
+          </td>
+          <td>name:{{ item.selectable[0].firstname }}</td>
+          <td>department:{{ item.selectable[2].department }}</td>
+          <td>designation:{{ item.selectable[2].designation }}</td>
+          <td>email : {{ item.selectable[0].email }}</td>
+          <td>{{ item.selectable[0].mobile }}</td>
+          <td>
+            <a
+              v-if="item.selectable[2].resumeLink"
+              :href="item.selectable[2].resumeLink"
+              :target="item.selectable[2].resumeLink"
+              @click="downloadPdf(item.selectable[2].resumeLink.pdfData)"
+            >
+              <v-icon class="mr-2">mdi-file-pdf-box</v-icon>
+              <v-btn v-if="item.selectable[2].resumeLink" depressed>
+                <v-icon>mdi-download</v-icon>
+                <span>get the file</span>
+              </v-btn>
+            </a>
+          </td>
+          <td>
+            <v-icon class="mr-2" @click="userdata.edit_user(item.index)"
+              >mdi-pencil</v-icon
+            >
+            <v-icon class="mr-2" @click="userdata.delete_user(item.index)"
+              >mdi-delete</v-icon
+            >
+          </td>
+        </tr>
+      </template>
+    </v-data-table>
   </div>
 </template>
 
 <script setup>
-
 import router from "@/router";
 import { VDataTable } from "vuetify/labs/VDataTable";
 import { ref } from "vue";
 function addEmp() {
-  router.push("/AddEmp");
+  router.replace("/AddEmp");
 }
 
 import { useAppStore } from "../store/app.js";

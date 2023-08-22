@@ -1,21 +1,16 @@
 <template>
   <div>
-   <stepper-design />
-</div>
+    <stepper-design />
+  </div>
   <div>
-    <div class="text-center text-capitalize text-h5 mt-3">
+    <div class="text-center text-capitalize text-h6 mt-3 font-weight-light">
       Experience Details
     </div>
-
-    <v-alert
-      variant="outlined"
-      type="warning"
-      prominent
-      border="top"
-      v-show="!go_to_next"
-    >
-      please add atlist one record
-    </v-alert>
+    <div class="d-flex justify-end align-center flex-wrap width">
+      <v-alert dismissible type="warning" v-show="!go_to_next">
+        please add atlist one record
+      </v-alert>
+    </div>
 
     <v-card-actions class="d-flex justify-end align-center flex-wrap">
       <v-btn
@@ -128,7 +123,7 @@
         <v-btn
           depressed
           class="bg-deep-purple"
-          @click="userdata.back('/ProfessionalDetails')"
+          @click="userdata.back('/EducationDetails')"
         >
           <span>Back</span>
         </v-btn>
@@ -170,7 +165,7 @@ function add_edu() {
 const Rules = [
   (value) => {
     if (value) return true;
-    return "required";
+    return "This attribute is required";
   },
 ];
 
@@ -233,5 +228,11 @@ function go_to_ExperienceDetails() {
 }
 </script>
 
-<style>
+
+<style scope>
+.width {
+  width: 30%;
+}
 </style>    
+
+

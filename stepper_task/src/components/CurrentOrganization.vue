@@ -1,8 +1,8 @@
 <template>
   <div>
-   <stepper-design />
-</div>
-  <div class="text-center text-capitalize text-h5 mt-3">
+    <stepper-design />
+  </div>
+  <div class="text-center text-capitalize text-h6 mt-3 font-weight-light">
     Current Organization Details
   </div>
   <div>
@@ -100,20 +100,20 @@ const userdata = useAppStore();
 import { ref } from "vue";
 const form = ref(null);
 userdata.edit_user_in_local();
-// const dateRules = [
-//   (value) => {
-//     if (value) return true;
-//     return "Date is required.";
-//   },
-// ];
+const dateRules = [
+  (value) => {
+    if (value) return true;
+    return "This attribute is required";
+  },
+];
 
-// const mobileRules = [
-//   (value) => {
-//     if (value) return true;
+const mobileRules = [
+  (value) => {
+    if (value) return true;
 
-//     return "phone is required.";
-//   },
-// ];
+    return "This attribute is required";
+  },
+];
 </script>
 
 <style>

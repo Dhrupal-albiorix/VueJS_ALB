@@ -1,8 +1,10 @@
 <template>
   <div>
-   <stepper-design />
-</div>
-  <div class="text-center text-capitalize text-h5 mt-3">Bank Details</div>
+    <stepper-design />
+  </div>
+  <div class="text-center text-capitalize text-h6 mt-3 font-weight-light">
+    Bank Details
+  </div>
 
   <v-sheet>
     <v-form ref="form">
@@ -118,41 +120,41 @@ import StepperDesign from "../components/StepperDesign.vue";
 import { ref } from "vue";
 const form = ref(null);
 userdata.edit_user_in_local();
-// const bank_nameRules = [
-//   (value) => {
-//     if (value) return true;
-//     return "required";
-//   },
-// ];
+const bank_nameRules = [
+  (value) => {
+    if (value) return true;
+    return "required";
+  },
+];
 
-// const bank_acc_nameRules = [
-//   (value) => {
-//     if (value) return true;
-//     return "required";
-//   },
-// ];
-// const bank_ifscRules = [
-//   (value) => {
-//     if (value) return true;
-//     return "requred.";
-//   },
-//   (value) => {
-//     const phoneRegex = /^[A-Za-z]{4}[a-zA-Z0-9]{7}$/g;
-//     if (phoneRegex.test(value)) return true;
-//     return "Not valid.";
-//   },
-// ];
-// const bank_acc_noRules = [
-//   (value) => {
-//     if (value) return true;
-//     return "required";
-//   },
-//   (value) => {
-//     const phoneRegex = /^(\+\d{1,2}\s?)?\(?\d{3}\)?[\s.-]?\d{3}[\s.-]?\d{4}$/;
-//     if (phoneRegex.test(value)) return true;
-//     return "Not valid";
-//   },
-// ];
+const bank_acc_nameRules = [
+  (value) => {
+    if (value) return true;
+    return "This attribute is required";
+  },
+];
+const bank_ifscRules = [
+  (value) => {
+    if (value) return true;
+    return "This attribute is required";
+  },
+  (value) => {
+    const phoneRegex = /^[A-Za-z]{4}[a-zA-Z0-9]{7}$/g;
+    if (phoneRegex.test(value)) return true;
+    return "Not a valid input";
+  },
+];
+const bank_acc_noRules = [
+  (value) => {
+    if (value) return true;
+    return "This attribute is required";
+  },
+  (value) => {
+    const phoneRegex = /^(\+\d{1,2}\s?)?\(?\d{3}\)?[\s.-]?\d{3}[\s.-]?\d{4}$/;
+    if (phoneRegex.test(value)) return true;
+    return "Not a valid input";
+  },
+];
 </script>
 
 
